@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5e9db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #4caf50;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Form Pendaftaran</h1>
+        <form id="myForm">
+            <input type="text" id="name" placeholder="Nama"><br>
+            <input type="email" id="email" placeholder="Email"><br>
+            <input type="text" id="address" placeholder="Alamat Lengkap"><br>
+            <button type="submit">Daftar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            // Ambil nilai input
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+
+            // Cek jika salah satu field kosong
+            if (name === '' || email === '' || address === '') {
+                alert('Semua data harus diisi.');
+                event.preventDefault(); // Hentikan pengiriman form jika kosong
+            }
+        });
+    </script>
+
+</body>
+</html>
